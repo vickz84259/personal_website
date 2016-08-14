@@ -24,7 +24,7 @@ Project Slick
         <div class="dropdown">
             <button type="button" class="navbar-toggle" data-toggle="dropdown"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
             <!-- <a data-toggle="dropdown" href="#">Dropdown trigger</a> -->
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <ul class="dropdown-menu inside" role="menu" aria-labelledby="dLabel">
                 <li><a href="#head" class="active">Slick</a></li>
                 <li><a href="#about">About me</a></li>
                 <li><a href="#contact">Get in touch</a></li>
@@ -37,7 +37,7 @@ Project Slick
 {% block content %}
 <!-- Main (Home) section -->
 <section class="section" id="head">
-    <div class ="container">
+    <div class ="container inside">
 
         <div class="row">
             <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center">
@@ -59,7 +59,7 @@ Project Slick
 
 <!-- Second (About) section -->
 <section class="section" id="about">
-    <div class="container">
+    <div class="container inside">
         <h2 class="text-center title">About me</h2>
         <div class="row">
             <div class="col-sm-4 col-sm-offset-2">
@@ -82,7 +82,7 @@ Project Slick
 
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2 text-center">
-                <p class="lead">Have a question about <a href="#head">Slick</a> or you just wanna say hi?</p>
+                <p class="lead inside">Have a question about <a href="#head">Slick</a> or you just wanna say hi?</p>
                 <p>Feel free to message me</p>
                 <p><b>victor@slick.co.ke</b><br><br></p>
                 <ul class="list-inline list-social">
@@ -109,5 +109,4 @@ Project Slick
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 <!-- Custom template scripts -->
 <script src="static/js/magister.js"></script>
-<script src="static/js/main.js"></script>
 {% endblock %}

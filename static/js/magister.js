@@ -9,7 +9,7 @@ var section_show_time = 1300;
 jQuery(document).ready(function($) {
 
 	// Switch section
-	$("a").click(function()
+	$("a", ".inside").click(function()
 	{
 		if( ! $(this).hasClass('active') ) {
 			current_item = this;
