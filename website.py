@@ -1,9 +1,12 @@
 # Standard modules
+import logging
 
 # Third-Party modules
 import flask
 
 # Project modules
+
+logging.basicConfig(level=logging.INFO)
 
 app = flask.Flask(__name__)
 
