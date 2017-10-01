@@ -1,4 +1,4 @@
-# [Slick](https://slick.co.ke)
+# [Slick](https://slick.co.ke) [![Build Status](https://travis-ci.org/vickz84259/personal_website.svg?branch=master)](https://travis-ci.org/vickz84259/personal_website)
 
 This is the full source code to my website.
 
