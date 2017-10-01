@@ -1,0 +1,9 @@
+language: python
+python: 3.6
+before_install: pip install pipenv
+install: pipenv install --ignore-pipfile
+script: pytest
+notifications:
+  slack:
+    rooms:
+      secure: iOp17megOE4KAOh4OEvjervHWX+R7x5rJAd+e5wi2TXvFmzIEQDo1ilKl3gBrHIPUGVCs1wf4SkCxnsSow7pAUEqVYXx/fBU9VukXLeNncJEVehjuTP2hmFnUZ1m5MFwPXu5Jck6vgKLb/b1+ks/T1u+txd3/Q1WWdZTg96xQAEser8XavFHyTJeIUyOAS/H514uLQhxqgo9FZ+xr4XvMrEAMLoGCRheg5iOBAkdjHR3ivaOu1+0duIt+gDQwPb/zVP+iTVRv+2dnufXxL4jyyIqA0NJzpJGQGf7pYCc68P7RSsnKo4Cvz7xpSTc7VW+rrkw7cV8fn+GkDTCdj5dLy1iA9Ds9pKE5fauoQIS1ZIKHobq5des3cHrJacKiPiMkyEUJ4ZXoOFn73v/507U7jOudae6+5CtYjU8M/LwHg2t5ox8HaB7nXPhzYvELA5/FQY5I3dYeyeIK5cOw+MShrAb/KL9S4Fi2jBazEBM7bDh5TnqS083qcmUQ2nUUWkcXOnRDkJ5YVn9rYxnuwfxynfmaJmMtzScVVvbKJIT0tuiGJcJxa+e2ruegRwmFHm96GwLinJISpZMcwYx8/Ya3BuxUcxLxU0i0O1bTgRFTUSOC6EzRP1HwON3nhRxonE5M52Q2DuCJ3UHkXq3ISFHbdmXLIxMwJJtuXuEArlSidU=
