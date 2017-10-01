@@ -1,6 +1,8 @@
 language: python
 python: 3.6
 cache: pip
+before_cache:
+  - rm -f $HOME/.cache/pip/log/debug.log
 before_install: pip install pipenv
 install: pipenv install --ignore-pipfile
 script: pytest
