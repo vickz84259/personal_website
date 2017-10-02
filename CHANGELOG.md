@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Changed
-- Travis-CI configuration to try and eliminate redundancy.
+- Travis-CI configuration to eliminate redundancy.
+- Travis-CI now ignores tags e.g. v1.2.0
 
 ## [1.1.1] - 2017-10-2
 ### Added
