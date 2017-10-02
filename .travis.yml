@@ -1,16 +1,34 @@
 language: python
 python: 3.6
-cache: pip
-before_cache:
-  - rm -f $HOME/.cache/pip/log/debug.log
-before_install: pip install pipenv
-install: pipenv install
-script: pytest
-deploy:
-  provider: heroku
-  app: slickbots
-  api_key:
-    secure: usLtc1XY3kDzrkt54I9QMPWDCN5bW0r7AdSjJw9LKpNPMP0WC4pvjjGbpWCpVtI5tzdIkpN4UEjNS4qUIMfgudGZrJGe9HME5TwOltzSB8qm9mSmKqHppALkhWLyXt5L4gJKEFgtChhvJGUdcqsvOqA0IOlim7fMufMnKAfZr81JVgInw9E1ds/L2EdMDYuo9IJMDu6o+sKVmmPWqnND/phpNFr1kFXhZIZWRop5lxSFVCeABD7fKlTphPy6e/PVU+Gn/kqJgpqsXO2KQ6bC29feTbIGgjPHoFLSCOzdumGcnYh3J0D9/KtD9DwU2jcOYdXY/EPIHB1IqrjnRT0nsx8QJkGvJNYZS5ZN8bvKb1ab3Ub60yZAAATtI7AByxseiQT8prTXCqIVaPTTiy90bx6H2B4kwZfnUKI74AalKq+p5EhxLJfKdouMnVOv/ytVanc04qz2lYjGCzhAjmxjugCZX4vVjNsVPAKtdZYvV57HaF9CmIDPiWEHGmsPVGjGVVZRWoMuniZ9oezUyFwTxFGFqAG0t7z15dU3tZcr5j6DbL9uSsaxm5sf8Ca5RNAuwaVl1MqAysUcEBCLmN43pzyEBc3mYtiUilsvL1BdbDe1jv3xxz4BujuVIT/UVwxLPAfbcNRabJ7iGZHKNew2vrhUYLIjwvlUKw7YwUONyrI=
+
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
+
+stages:
+  - name: test
+    if: NOT (branch = master)
+  - name: deploy
+    if: branch = master
+
+jobs:
+  include:
+    - stage: test
+      cache: pip
+      before_cache:
+        - rm -f $HOME/.cache/pip/log/debug.log
+      before_install: pip install pipenv
+      install: pipenv install
+      script: pytest
+    - stage: deploy
+      install: skip
+      script: skip
+      deploy:
+        provider: heroku
+        app: slickbots
+        api_key:
+          secure: usLtc1XY3kDzrkt54I9QMPWDCN5bW0r7AdSjJw9LKpNPMP0WC4pvjjGbpWCpVtI5tzdIkpN4UEjNS4qUIMfgudGZrJGe9HME5TwOltzSB8qm9mSmKqHppALkhWLyXt5L4gJKEFgtChhvJGUdcqsvOqA0IOlim7fMufMnKAfZr81JVgInw9E1ds/L2EdMDYuo9IJMDu6o+sKVmmPWqnND/phpNFr1kFXhZIZWRop5lxSFVCeABD7fKlTphPy6e/PVU+Gn/kqJgpqsXO2KQ6bC29feTbIGgjPHoFLSCOzdumGcnYh3J0D9/KtD9DwU2jcOYdXY/EPIHB1IqrjnRT0nsx8QJkGvJNYZS5ZN8bvKb1ab3Ub60yZAAATtI7AByxseiQT8prTXCqIVaPTTiy90bx6H2B4kwZfnUKI74AalKq+p5EhxLJfKdouMnVOv/ytVanc04qz2lYjGCzhAjmxjugCZX4vVjNsVPAKtdZYvV57HaF9CmIDPiWEHGmsPVGjGVVZRWoMuniZ9oezUyFwTxFGFqAG0t7z15dU3tZcr5j6DbL9uSsaxm5sf8Ca5RNAuwaVl1MqAysUcEBCLmN43pzyEBc3mYtiUilsvL1BdbDe1jv3xxz4BujuVIT/UVwxLPAfbcNRabJ7iGZHKNew2vrhUYLIjwvlUKw7YwUONyrI=
+
 notifications:
   slack:
     secure: A590PNfpWQ0QhFxCAY1xeM3ScxpxCcb9PAzhr7oytQTjIXhj777dVC6oHCKZrOQI+75ENCTsiX1o4y1mUpf9AZuR6gA33rGGPNHPJ6LqyCnCYBpmHAEDRno7rtVrOR5N0rG2zE96iazgzlRMEUBxew990iJ4IDQ5vMZgl0nCiHkc8C5fZEaa8ykUqvwMgcNhwngLZK/TOSfIkCjSqnCr8TZvOluxjOPINGkKSrYeeFc+WPzdskawtBVSBOC+T1b/uzjXc8BHmNGFWqqMGyrxT3FHIFqDi3qMz2UKYPxS1WkyGWX0SWDSyqETNaf8kqbjCMihkThqPRF9W+OPIcRoVHDoJ05xZDqfa8zxmS3fBvNdfbCN0rkW8A/MFjCIPt4w5E7/oYq5+X7vw7KVG9Ia9YEbzsXWuozjfCxrcvAAsneh86sxji0iU4k1RJqaV0G086pifydjcrkfh67lNGsZoZB2/943YeuKUgjhurkxhtRVZsFrth4LR8UOKuwJrRYx++Obmgqi4P5UMKO7BKfdPJb2hS4f1S7Aln9BhqOmZQkPjWZEmJvTnSdYDLBeOUxxX2KuCGKUJUQPEjM02q/L7gDO/ndzXF7zRKIF5WWUw4QJYD0WskiN/EbiNuJjUSdDqzROukkb+M53D4D7o/CgZUPnKveVzxoPDR332euiy7I=

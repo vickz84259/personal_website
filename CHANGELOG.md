@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.2] - 2017-10-2
+### Removed
+- The changelog for the latest stable release from README.md.
+
+### Changed
+- Travis-CI configuration to eliminate redundancy.
+- Travis-CI now ignores tags e.g. v1.2.0
+
 ## [1.1.1] - 2017-10-2
 ### Added
 - A link in the README.md to compare master and dev branches
