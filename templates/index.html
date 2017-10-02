@@ -6,7 +6,7 @@ Project Slick
 
 {% block styles %}
     <!-- Bootstrap itself -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles -->
     <link rel="stylesheet" href="static/css/magister.css"><!-- landing page -->
@@ -14,17 +14,17 @@ Project Slick
 
 {% block fonts %}
     <!-- Fonts -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
 {% endblock %}
 
 {% block nav_links %}
-<nav class="mainmenu">
+<nav class="mainmenu inside">
     <div class="container">
         <div class="dropdown">
             <button type="button" class="navbar-toggle" data-toggle="dropdown"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
             <!-- <a data-toggle="dropdown" href="#">Dropdown trigger</a> -->
-            <ul class="dropdown-menu inside" role="menu" aria-labelledby="dLabel">
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                 <li><a href="#head" class="active">Slick</a></li>
                 <li><a href="#about">About me</a></li>
                 <li><a href="#contact">Get in touch</a></li>
@@ -36,8 +36,8 @@ Project Slick
 
 {% block content %}
 <!-- Main (Home) section -->
-<section class="section" id="head">
-    <div class ="container inside">
+<section class="section inside" id="head">
+    <div class ="container">
 
         <div class="row">
             <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center">
@@ -58,8 +58,8 @@ Project Slick
 </section>
 
 <!-- Second (About) section -->
-<section class="section" id="about">
-    <div class="container inside">
+<section class="section inside" id="about">
+    <div class="container">
         <h2 class="text-center title">About me</h2>
         <div class="row">
             <div class="col-sm-4 col-sm-offset-2">
@@ -69,7 +69,7 @@ Project Slick
             </div>
             <div class="col-sm-4">
                 <h5><strong>About Slick<br></strong></h5>
-                <p>Slick started out as a project name for a service I was workin on. Slick was meant to enable someone to send messages from Whatsapp to Telegram and vice versa. I hit a roadblock due to whatsapp's stance against using third-party apis. I didn't want to invest time in it if I'd constantly be implementing features to avoid having my numbers blocked. So, now Slick acts as the project name for a family of messaging bots I'm introducing. Each bot will operate in Telegram, Twitter, Slack and Facebook messenger. The first one will soon launch into private beta. <a href="#contact">Send me a message</a> if you'd like to participate.</p>
+                <p>Slick started out as a project name for a service I was working on. Slick was meant to enable someone to send messages from Whatsapp to Telegram and vice versa. I hit a roadblock due to whatsapp's stance against using third-party apis. I didn't want to invest time in it if I'd constantly be implementing features to avoid having my numbers blocked. So, now Slick acts as the project name for a family of messaging bots I'm introducing. Each bot will operate in Telegram, Twitter, Slack and Facebook messenger. The first one will soon launch into private beta. <a href="#contact">Send me a message</a> if you'd like to participate.</p>
             </div>
         </div>
     </div>
@@ -105,7 +105,7 @@ Project Slick
 
 {% block scripts %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 <!-- Custom template scripts -->
 <script src="static/js/magister.js"></script>
