@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 ## [Unreleased]
+
+## [1.1.1] - 2017-10-2
 ### Added
 - A link in the README.md to compare master and dev branches
 - A section in the README.md to dictate the current stable version.
@@ -33,4 +35,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   generate a new one.
 
 [Unreleased]: https://github.com/vickz84259/personal_website/compare/master...dev
+[1.1.1]: https://github.com/vickz84259/personal_website/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/vickz84259/personal_website/compare/v1.0.0...v1.1.0

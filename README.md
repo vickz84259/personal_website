@@ -8,21 +8,17 @@ This is the most stable version. The version running in production may be
 different from the stable version. This will be noted accordingly in this
 section.
 
-### [1.1.0] - 2017-10-2
-#### Added
-- A README.md file to give further descriptions on the project
-- A MIT license in the file LICENSE.md
-- Unit Testing capabilities using pytest. This includes a simple
-  test case.
-- Added travis-ci configuration to test, build and deploy the app
-  to heroku.
+## [1.1.1] - 2017-10-2 [In production](https://slick.co.ke)
+### Added
+- A link in the README.md to compare master and dev branches
+- A section in the README.md to dictate the current stable version.
 
-#### Changed
-- Switched from using requirements.txt to using pipenv to handle dependencies.
+### Fixed
+- The link for comparing versions v1.1.0 and v1.0.0
 
 ## License
 
 This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details.1
 
-[Stable Version]: https://github.com/vickz84259/personal_website/releases/tag/v1.1.0
-[1.1.0]: https://github.com/vickz84259/personal_website/releases/tag/v1.1.0
+[Stable Version]: https://github.com/vickz84259/personal_website/releases/tag/v1.1.1
+[1.1.1]: https://github.com/vickz84259/personal_website/releases/tag/v1.1.1
