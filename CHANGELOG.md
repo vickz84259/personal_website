@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - A link in the README.md to compare master and dev branches
+- A section in the README.md to dictate the current stable version.
 
 ### Fixed
 - The link for comparing versions v1.1.0 and v1.0.0
