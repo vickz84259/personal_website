@@ -11,9 +11,9 @@ logging.basicConfig(level=logging.INFO)
 app = flask.Flask(__name__)
 
 
-@app.route('/')
+@app.route('/old')
 def index():
-    return flask.render_template('index.html')
+    return flask.render_template('old_index.html')
 
 
 if __name__ == '__main__':

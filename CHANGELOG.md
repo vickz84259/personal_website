@@ -4,7 +4,12 @@ Changes related to the project will be documented here.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
-## [Unreleased]
+## [2.0.0-alpha.1] - 2017-10-3
+### Changed
+- Moved the old files to /old folders in their respective locations.
+- Updated the link to the old webpage as /old from /.
+- the travis-ci configuration to include the new format for tags as
+  part of the excluded tags.
 
 ## [1.1.2] - 2017-10-2
 ### Removed
@@ -42,6 +47,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - I forgot the passphrase for the initial GPG key used, hence I was forced to
   generate a new one.
 
-[Unreleased]: https://github.com/vickz84259/personal_website/compare/master...dev
+[2.0.0-alpha.1]: https://github.com/vickz84259/personal_website/compare/v.1.1.1...v2.0.0-alpha.1
 [1.1.1]: https://github.com/vickz84259/personal_website/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/vickz84259/personal_website/compare/v1.0.0...v1.1.0
