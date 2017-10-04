@@ -4,7 +4,7 @@ This is the full source code to my website.
 
 ## [Stable Version]
 
-[1.1.2] - [In production](https://slick.co.ke)
+[1.1.2] - **Not in production**
 
 This is the most stable version. The version running in production may be
 different from the stable version. This will be noted accordingly in this
