@@ -21,5 +21,10 @@ def home():
     return flask.redirect(flask.url_for('index'))
 
 
+@app.route('/demo')
+def demo():
+    pass
+
+
 if __name__ == '__main__':
     app.run()
