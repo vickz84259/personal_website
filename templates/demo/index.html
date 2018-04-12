@@ -102,8 +102,13 @@
                     <!-- /#blog-homepage -->
                 </div>
                 {%- else %}
+                    <div id="blog-homepage" class="row">
                     {%- for tweet in tweets %}
-                        {{ tweet }}
+                        <div class="col-sm-6">
+                            <div class="post">
+                                {{ tweet }}
+                            </div>
+                        </div>
                     {%- endfor %}
                 {%- endif %}
             </div>
