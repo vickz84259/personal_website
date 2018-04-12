@@ -7,9 +7,9 @@ branches:
 
 stages:
   - name: test
-    if: NOT (branch = master)
+    if: NOT (branch = twitter)
   - name: deploy
-    if: NOT (branch = master)
+    if: branch = twitter
 
 jobs:
   include:
