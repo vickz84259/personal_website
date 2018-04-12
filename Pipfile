@@ -8,6 +8,8 @@ name = "pypi"
 flask = "*"
 gunicorn = "*"
 pytest = "*"
+requests = "*"
+"requests-oauthlib" = "*"
 
 
 [dev-packages]
