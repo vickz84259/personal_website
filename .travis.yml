@@ -28,6 +28,8 @@ jobs:
         app: slickbots
         api_key:
           secure: usLtc1XY3kDzrkt54I9QMPWDCN5bW0r7AdSjJw9LKpNPMP0WC4pvjjGbpWCpVtI5tzdIkpN4UEjNS4qUIMfgudGZrJGe9HME5TwOltzSB8qm9mSmKqHppALkhWLyXt5L4gJKEFgtChhvJGUdcqsvOqA0IOlim7fMufMnKAfZr81JVgInw9E1ds/L2EdMDYuo9IJMDu6o+sKVmmPWqnND/phpNFr1kFXhZIZWRop5lxSFVCeABD7fKlTphPy6e/PVU+Gn/kqJgpqsXO2KQ6bC29feTbIGgjPHoFLSCOzdumGcnYh3J0D9/KtD9DwU2jcOYdXY/EPIHB1IqrjnRT0nsx8QJkGvJNYZS5ZN8bvKb1ab3Ub60yZAAATtI7AByxseiQT8prTXCqIVaPTTiy90bx6H2B4kwZfnUKI74AalKq+p5EhxLJfKdouMnVOv/ytVanc04qz2lYjGCzhAjmxjugCZX4vVjNsVPAKtdZYvV57HaF9CmIDPiWEHGmsPVGjGVVZRWoMuniZ9oezUyFwTxFGFqAG0t7z15dU3tZcr5j6DbL9uSsaxm5sf8Ca5RNAuwaVl1MqAysUcEBCLmN43pzyEBc3mYtiUilsvL1BdbDe1jv3xxz4BujuVIT/UVwxLPAfbcNRabJ7iGZHKNew2vrhUYLIjwvlUKw7YwUONyrI=
+        on:
+          all_branches: true
 
 notifications:
   slack:
