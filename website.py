@@ -25,6 +25,7 @@ def home():
 @app.route('/demo', methods=['POST', 'GET'])
 def demo():
     tweets = []
+    logging.info(flask.request.method)
     if flask.request.method == 'POST':
         keyword = flask.request.form['search_query']
         logging.info("keyword {}".format(keyword))
