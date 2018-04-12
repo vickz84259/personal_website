@@ -5,7 +5,6 @@ import logging
 import flask
 
 # Project modules
-import twitter
 
 logging.basicConfig(level=logging.INFO)
 
@@ -24,7 +23,7 @@ def home():
 
 @app.route('/demo')
 def demo():
-    return str(twitter.initialise())
+    return flask.render_template('demo/index.html')
 
 
 if __name__ == '__main__':
