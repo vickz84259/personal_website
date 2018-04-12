@@ -16,5 +16,10 @@ def index():
     return flask.render_template('/old/index.html')
 
 
+@app.route('/')
+def home():
+    return flask.redirect(flask.url_for('index'))
+
+
 if __name__ == '__main__':
     app.run()

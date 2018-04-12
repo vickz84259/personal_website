@@ -10,7 +10,7 @@ def initialize():
 
 def test_main_page(initialize):
     response = initialize.get('/')
-    assert response.status_code == 404
+    assert response.status_code == 302
 
 
 def test_old_main_page(initialize):
