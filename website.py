@@ -24,7 +24,7 @@ def home():
 
 @app.route('/demo')
 def demo():
-    return twitter.initialise()
+    return str(twitter.initialise())
 
 
 if __name__ == '__main__':
