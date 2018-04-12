@@ -27,6 +27,7 @@ def demo():
     tweets = []
     if flask.request.method == 'POST':
         keyword = flask.request.form['search_query']
+        logging.info("keyword {}".format(keyword))
         tweets = twitter.search(keyword)
 
     return flask.render_template('demo/index.html', tweets=tweets)
