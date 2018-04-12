@@ -4,6 +4,17 @@ Changes related to the project will be documented here.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
+## Unreleased
+### Changed
+- The structure of the old templates to match the structure of the
+  other assets.
+
+### Fixed
+- Travis-CI not recognising the release naming scheme for alpha
+  releases.
+- Missing link in changelog to version 1.1.2.
+- Stable section in README.md showing v1.1.2 as being in production.
+
 ## [2.0.0-alpha.1] - 2017-10-3
 ### Changed
 - Moved the old files to /old folders in their respective locations.
@@ -47,6 +58,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - I forgot the passphrase for the initial GPG key used, hence I was forced to
   generate a new one.
 
-[2.0.0-alpha.1]: https://github.com/vickz84259/personal_website/compare/v.1.1.1...v2.0.0-alpha.1
+[2.0.0-alpha.1]: https://github.com/vickz84259/personal_website/compare/v.1.1.2...v2.0.0-alpha.1
+[1.1.2]: https://github.com/vickz84259/personal_website/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/vickz84259/personal_website/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/vickz84259/personal_website/compare/v1.0.0...v1.1.0
