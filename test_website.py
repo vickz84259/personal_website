@@ -16,3 +16,8 @@ def test_main_page(initialize):
 def test_old_main_page(initialize):
     response = initialize.get('/old')
     assert response.status_code == 200
+
+
+def test_twitter_page(initialize):
+    response = initialize.get('/demo')
+    assert response.status_code == 200
