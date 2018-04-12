@@ -5,6 +5,7 @@ import logging
 import flask
 
 # Project modules
+import twitter
 
 logging.basicConfig(level=logging.INFO)
 
@@ -21,9 +22,14 @@ def home():
     return flask.redirect(flask.url_for('index'))
 
 
-@app.route('/demo')
+@app.route('/demo', methods=['POST', 'GET'])
 def demo():
-    return flask.render_template('demo/index.html')
+    tweets = []
+    if flask.request.method == 'POST':
+        keyword = flask.request.form['search_query']
+        tweets = twitter.search(keyword)
+
+    return flask.render_template('demo/index.html', tweets=tweets)
 
 
 if __name__ == '__main__':
