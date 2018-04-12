@@ -88,6 +88,7 @@
  __________________________________________ -->
             <div class="container">
 
+                {%- if tweets == [] %}
                 <div class="col-md-12" data-animate="fadeInUp">
 
                     <div id="blog-homepage" class="row">
@@ -100,6 +101,11 @@
                     </div>
                     <!-- /#blog-homepage -->
                 </div>
+                {%- else %}
+                    {%- for tweet in tweets %}
+                        {{ tweet }}
+                    {%- endfor %}
+                {%- endif %}
             </div>
             <!-- /.container -->
 
