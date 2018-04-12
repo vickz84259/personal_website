@@ -7,7 +7,7 @@ import flask
 # Project modules
 import twitter
 
-logging.basicConfig(level=logging.INFO)
+logging.getLogger().setLevel(logging.INFO)
 
 app = flask.Flask(__name__)
 
