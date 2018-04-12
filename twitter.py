@@ -11,7 +11,7 @@ def initialise():
     client = BackendApplicationClient(client_id=key)
     oauth = OAuth2Session(client=client)
 
-    url = 'https://api.twitter.com/oauth/request_token'
+    url = 'https://api.twitter.com/oauth2/token'
     token = oauth.fetch_token(
         token_url=url, client_id=key, client_secret=secret)
 
