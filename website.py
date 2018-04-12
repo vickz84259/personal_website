@@ -7,7 +7,7 @@ import flask
 # Project modules
 import twitter
 
-logging.getLogger().setLevel(logging.INFO)
+logging.getLogger().setLevel(logging.WARNING)
 
 app = flask.Flask(__name__)
 
@@ -25,10 +25,8 @@ def home():
 @app.route('/demo', methods=['POST', 'GET'])
 def demo():
     tweets = []
-    logging.info(flask.request.method)
     if flask.request.method == 'POST':
         keyword = flask.request.form['search_query']
-        logging.info("keyword {}".format(keyword))
         tweets = twitter.search(keyword)
 
     return flask.render_template('demo/index.html', tweets=tweets)

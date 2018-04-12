@@ -1,6 +1,5 @@
 import os
 import requests
-import logging
 
 from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
@@ -40,7 +39,6 @@ def get_tweets(query):
 
     response = requests.get(url, params=params, headers=headers)
     decoded = response.json()
-    logging.info(decoded)
 
     return decoded['statuses']
 
@@ -67,5 +65,4 @@ def search(query):
         oembed = get_oembed(tweet_id, username)
         result.append(oembed)
 
-    logging.info(result)
     return result
