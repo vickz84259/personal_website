@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 ## Unreleased
+
+## [2.0.0-alpha.2] - 2019-14-01
+### Added
+- Google domain verification.(Note this is specific for my domain: slick.co.ke)
+
 ### Changed
 - The structure of the old templates to match the structure of the
   other assets.
@@ -14,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   releases.
 - Missing link in changelog to version 1.1.2.
 - Stable section in README.md showing v1.1.2 as being in production.
+- typos in link leading to github compare page between 2.0.0-alpha.1 and v1.1.2
 
 ## [2.0.0-alpha.1] - 2017-10-3
 ### Changed
@@ -58,7 +64,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - I forgot the passphrase for the initial GPG key used, hence I was forced to
   generate a new one.
 
-[2.0.0-alpha.1]: https://github.com/vickz84259/personal_website/compare/v.1.1.2...v2.0.0-alpha.1
+[2.0.0-alpha.2]: https://github.com/vickz84259/personal_website/compare/2.0.0-alpha.1...2.0.0-alpha.2
+[2.0.0-alpha.1]: https://github.com/vickz84259/personal_website/compare/v1.1.2...2.0.0-alpha.1
 [1.1.2]: https://github.com/vickz84259/personal_website/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/vickz84259/personal_website/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/vickz84259/personal_website/compare/v1.0.0...v1.1.0

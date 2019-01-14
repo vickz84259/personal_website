@@ -16,3 +16,8 @@ def test_main_page(initialize):
 def test_old_main_page(initialize):
     response = initialize.get('/old')
     assert response.status_code == 200
+
+
+def test_google_verification(initialize):
+    response = initialize.get('/google8b87abaa24c74d5d.html')
+    assert response.status_code == 200
