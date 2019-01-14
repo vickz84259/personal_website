@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 ## Unreleased
+### Added
+- Google domain verification.(Note this is specific for my domain: slick.co.ke)
+
 ### Changed
 - The structure of the old templates to match the structure of the
   other assets.

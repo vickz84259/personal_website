@@ -21,5 +21,10 @@ def home():
     return flask.redirect(flask.url_for('index'))
 
 
+@app.route('/google8b87abaa24c74d5d.html')
+def google_verification():
+    return flask.render_template('google8b87abaa24c74d5d.html')
+
+
 if __name__ == '__main__':
     app.run()
