@@ -21,3 +21,8 @@ def test_old_main_page(initialize):
 def test_google_verification(initialize):
     response = initialize.get('/google8b87abaa24c74d5d.html')
     assert response.status_code == 200
+
+
+def test_get_summoner_details(initialize):
+    response = initialize.get('/v1/summoner/euw1/vickz84259')
+    assert response.status_code == 200
