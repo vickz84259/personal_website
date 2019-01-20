@@ -6,7 +6,7 @@ import os
 from Crypto.Cipher import AES
 from Crypto.Hash import SHA256
 from Crypto.Random import get_random_bytes
-from Crypto.Utils import Padding
+from Crypto.Util import Padding
 
 
 def encrypt(key, data):
