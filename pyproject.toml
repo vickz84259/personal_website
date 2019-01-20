@@ -11,6 +11,7 @@ flask = "*"
 gunicorn = "*"
 pycryptodome = "*"
 regex = "*"
+requests = "^2.21"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
