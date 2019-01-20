@@ -21,7 +21,7 @@ def encrypt(key, data):
     ciphertext, tag = cipher.encrypt_and_digest(padded_data)
     bytes_result = b''.join([nonce, tag, ciphertext])
 
-    return base64.encode(bytes_result).decode()
+    return base64.b64encode(bytes_result).decode()
 
 
 def get_client_secrets(key):
