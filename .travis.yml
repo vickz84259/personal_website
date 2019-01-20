@@ -1,5 +1,6 @@
+dist: xenial
 language: python
-python: 3.6
+python: 3.7
 
 branches:
   except:
@@ -17,8 +18,8 @@ jobs:
       cache: pip
       before_cache:
         - rm -f $HOME/.cache/pip/log/debug.log
-      before_install: pip install pipenv
-      install: pipenv install
+      before_install: pip install poetry --pre
+      install: poetry install
       script: pytest
     - stage: deploy
       install: skip
