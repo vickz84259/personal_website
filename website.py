@@ -39,7 +39,7 @@ def get_summoner_details(region, summoner_name):
         flask.abort(400)
 
     endpoint = f'/lol/summoner/v4/summoners/by-name/{summoner_name}'
-    url = f'{riot.get_base_url(region)}{endpoint}'
+    url = f'https://{riot.get_base_url(region)}{endpoint}'
 
     headers = riot.get_headers()
     summoner_details = requests.get(url, headers=headers).json()
