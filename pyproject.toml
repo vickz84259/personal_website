@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "personal_website"
+version = "1.0.0"
+description = ""
+license = "MIT"
+authors = ["Victor Otieno <victor@slick.co.ke>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+flask = "*"
+gunicorn = "*"
+pycryptodome = "*"
+regex = "*"
+requests = "^2.21"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
