@@ -2,16 +2,13 @@
 
 # Third-Party modules
 import regex
+import requests
 
 # Project modules
 import datastore
 
 regional_endpoints = ['br1', 'eun1', 'euw1', 'jp1', 'kr',
                       'la1', 'la2', 'na1', 'oc1', 'tr1', 'ru', 'pbe1']
-
-
-def get_base_url(region):
-    return f'{region}.api.riotgames.com'
 
 
 def is_valid_region(region):
@@ -30,7 +27,11 @@ def is_valid_summoner(summoner_name):
     return result
 
 
-def get_headers():
+def get(region, endpoint):
     api_key = datastore.get_riot_api_key()
+    headers = {'X-Riot-Token': api_key}
 
-    return {'X-Riot-Token': api_key}
+    url = f'https://{region}.api.riotgames.com{endpoint}'
+    result = requests.get(url, headers=headers).json()
+
+    return result

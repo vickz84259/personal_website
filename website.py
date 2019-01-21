@@ -4,7 +4,6 @@ import urllib.parse
 
 # Third-Party modules
 import flask
-import requests
 
 # Project modules
 import riot
@@ -39,10 +38,7 @@ def get_summoner_details(region, summoner_name):
         flask.abort(400)
 
     endpoint = f'/lol/summoner/v4/summoners/by-name/{summoner_name}'
-    url = f'https://{riot.get_base_url(region)}{endpoint}'
-
-    headers = riot.get_headers()
-    summoner_details = requests.get(url, headers=headers).json()
+    summoner_details = riot.get(region, endpoint)
 
     key = summoner_details['puuid']
     secrets = datastore.get_client_secrets(key)
