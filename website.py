@@ -54,5 +54,21 @@ def get_summoner_details(region, summoner_name):
     return result
 
 
+@app.route('/v1/match/<region>/<match_id>')
+def get_match_details(region, match_id):
+    if (not riot.is_valid_region(region) or not match_id.isdigit()):
+        flask.abort(400)
+
+    endpoint = f'/lol/match/v4/matches/{match_id}'
+    response = riot.get(region, endpoint)
+
+    if response.status_code == 200:
+        result = response.text
+    elif response.status_code == 429:
+        result = ('', response.status_code, response.headers)
+
+    return result
+
+
 if __name__ == '__main__':
     app.run()
