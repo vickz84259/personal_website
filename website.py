@@ -63,7 +63,7 @@ def get_match_details(region, match_id):
     response = riot.get(region, endpoint)
 
     if response.status_code == 200:
-        result = response.text
+        result = flask.jsonify(response.json())
     elif response.status_code == 429:
         result = ('', response.status_code, response.headers)
 
