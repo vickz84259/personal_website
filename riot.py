@@ -11,7 +11,7 @@ regional_endpoints = ['br1', 'eun1', 'euw1', 'jp1', 'kr',
                       'la1', 'la2', 'na1', 'oc1', 'tr1', 'ru', 'pbe1']
 
 APP_RL_TYPE = 'X-App-Rate-Limit'
-METHOD_RL_TYPE = 'x-Method-Rate-Limit'
+METHOD_RL_TYPE = 'X-Method-Rate-Limit'
 
 
 class ErrorResponse:
@@ -42,34 +42,33 @@ def get_method(endpoint):
     return '/'.join(str_list)
 
 
-def assert_rate_limit(region, endpoint):
+def __check_rate_limit(type_name):
     result = True
 
     redis_db = datastore.get_redis_connection()
-    type_name = f'{APP_RL_TYPE}:{region}'
-    app_rate_limits = redis_db.get(type_name)
+    limits = redis_db.get(type_name)
 
-    if app_rate_limits is not None:
-        skip_method_check = False
-
-        for time, calls_allowed in __get_limits(app_rate_limits).items():
+    if limits is not None:
+        for time, calls in __get_limits(limits).items():
             calls_made = redis_db.get(f'{type_name}:{time}')
 
-            if calls_made is not None and calls_made >= calls_allowed:
+            if calls_made is not None and int(calls_made) >= calls:
                 result = False
-                skip_method_check = True
 
-        if not skip_method_check:
-            method = get_method(endpoint)
-            type_name = f'{METHOD_RL_TYPE}:{region}:{method}'
-            method_rate_limits = redis_db.get(type_name)
+    return result
 
-            allowed = __get_limits(method_rate_limits)
-            for time, calls_allowed in allowed.items():
-                calls_made = redis_db.get(f'{type_name}:{time}')
 
-                if calls_made is not None and calls_made >= calls_allowed:
-                    result = False
+def assert_rate_limit(region, endpoint):
+    result = False
+
+    app_type_name = f'{APP_RL_TYPE}:{region}'
+
+    method = get_method(endpoint)
+    method_type_name = f'{METHOD_RL_TYPE}:{region}:{method}'
+
+    if (__check_rate_limit(app_type_name) and
+            __check_rate_limit(method_type_name)):
+        result = True
 
     return result
 
@@ -99,7 +98,7 @@ def __set_rate_limit(type, limits, limit_counts, region, endpoint=None):
 
     rate_limit = redis_db.get(type_name)
     if rate_limit is None or rate_limit != limits:
-        redis_db.set(f'{type_name}', limits)
+        redis_db.set(type_name, limits)
 
     for time, calls_made in __get_limits(limit_counts).items():
         redis_db.set(
