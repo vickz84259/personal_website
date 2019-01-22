@@ -8,6 +8,8 @@ from Crypto.Hash import SHA256
 from Crypto.Random import get_random_bytes
 from Crypto.Util import Padding
 
+import redis
+
 
 def encrypt(key, data):
     block_size = 16
@@ -61,3 +63,9 @@ def get_streamable_secrets():
     authorization = base64.b64encode(auth).decode()
 
     return authorization
+
+
+def get_redis_connection():
+    redis_url = os.environ['REDIS_URL']
+
+    return redis.from_url(redis_url, decode_responses=True)

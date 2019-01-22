@@ -12,6 +12,7 @@ gunicorn = "*"
 pycryptodome = "*"
 regex = "*"
 requests = "^2.21"
+redis = "^3.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
