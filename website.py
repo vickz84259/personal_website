@@ -38,13 +38,20 @@ def get_summoner_details(region, summoner_name):
         flask.abort(400)
 
     endpoint = f'/lol/summoner/v4/summoners/by-name/{summoner_name}'
-    summoner_details = riot.get(region, endpoint)
+    response = riot.get(region, endpoint)
 
-    key = summoner_details['puuid']
-    secrets = datastore.get_client_secrets(key)
-    summoner_details['secrets'] = secrets
+    if response.status_code == 200:
+        summoner_details = response.json()
 
-    return flask.jsonify(summoner_details)
+        key = summoner_details['puuid']
+        secrets = datastore.get_client_secrets(key)
+        summoner_details['secrets'] = secrets
+
+        result = flask.jsonify(summoner_details)
+    elif response.status_code == 429:
+        result = ('', response.status_code, response.headers)
+
+    return result
 
 
 if __name__ == '__main__':

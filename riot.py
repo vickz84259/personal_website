@@ -14,6 +14,13 @@ APP_RL_TYPE = 'X-App-Rate-Limit'
 METHOD_RL_TYPE = 'x-Method-Rate-Limit'
 
 
+class ErrorResponse:
+
+    def __init__(self, status_code, headers):
+        self.status_code = status_code
+        self.headers = headers
+
+
 def is_valid_region(region):
     result = True
     if region not in regional_endpoints:
@@ -122,8 +129,10 @@ def get(region, endpoint):
         headers = {'X-Riot-Token': api_key}
 
         url = f'https://{region}.api.riotgames.com{endpoint}'
-        result = requests.get(url, headers=headers).json()
+        result = requests.get(url, headers=headers)
 
         set_rate_limit(region, endpoint, result.headers)
+    else:
+        result = ErrorResponse(429, {'Retry-After': 10})
 
     return result
