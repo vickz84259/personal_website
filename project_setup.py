@@ -19,7 +19,7 @@ def get_leagues():
     return result['data']['leagues']
 
 
-def setup_tournaments():
+def _setup(return_tournaments=True):
     tournament_map = {}
     league_map = {}
 
@@ -29,19 +29,21 @@ def setup_tournaments():
 
         for tournament in tournaments:
             tournament_id = tournament['id']
-
             league_map[tournament_id] = tournament['leagueId']
-            tournament_map[tournament_id] = tournament
+
+            if return_tournaments:
+                tournament_map[tournament_id] = tournament
 
     redis_db = datastore.get_redis_connection()
     redis_db.mset(league_map)
 
-    return tournament_map
+    if return_tournaments:
+        return tournament_map
 
 
 def setup():
     videos_map = {}
-    tournament_map = setup_tournaments()
+    tournament_map = _setup()
 
     for vod in lolesports.vods():
         tournament_id = lolesports.get_tournament_id(vod['reference'])

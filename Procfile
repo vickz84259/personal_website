@@ -1,2 +1,2 @@
-release: python redis_setup.py
+release: python project_setup.py
 web: gunicorn website:app
