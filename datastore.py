@@ -47,6 +47,10 @@ def get_riot_api_key():
     return os.environ['RIOT_API_KEY']
 
 
+def get_relapi_key():
+    return os.environ['RELAPI_API_KEY']
+
+
 def get_gfycat_secrets():
     client_id = os.environ['GFYCAT_CLIENT_ID']
     client_secret = os.environ['GFYCAT_CLIENT_SECRET']
