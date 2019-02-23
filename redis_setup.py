@@ -19,17 +19,6 @@ def get_leagues():
     return result['data']['leagues']
 
 
-def validate(youtube_url, reference):
-    result = True
-    try:
-        lolesports.get_youtube_id(youtube_url)
-        lolesports.get_tournament_id(reference)
-    except (TypeError, AttributeError):
-        result = False
-
-    return result
-
-
 def setup_tournaments():
     tournament_map = {}
     league_map = {}
@@ -54,38 +43,16 @@ def setup():
     videos_map = {}
     tournament_map = setup_tournaments()
 
-    vods = lolesports.get_vods()
-    for vod in vods:
-        youtube_url = vod['source']
-        reference = vod['reference']
-        if not validate(youtube_url, reference):
-            continue
-
-        tournament_id = lolesports.get_tournament_id(reference)
+    for vod in lolesports.vods():
+        tournament_id = lolesports.get_tournament_id(vod['reference'])
         tournament = tournament_map.get(tournament_id)
         if tournament is None:
             continue
 
-        mapping = {}
-
-        game_id = vod['game']
-        mapping['game_id'] = game_id
-        mapping['tournament_id'] = tournament_id
-
-        for bracket in tournament['brackets'].values():
-            for match in bracket['matches'].values():
-                state = match.get('state', 'unresolved')
-                if state == 'resolved':
-                    for game in match['games'].values():
-                        if game['id'] == game_id:
-                            platform_id = game.get('platformId')
-                            if platform_id is not None:
-                                mapping['platform_id'] = game['platformId']
-                                mapping['match_id'] = match['id']
-
-                                youtube_id = lolesports.get_youtube_id(
-                                    youtube_url)
-                                videos_map[youtube_id] = str(mapping)
+        mapping = lolesports.get_mapping(tournament, vod['game'])
+        if mapping:
+            youtube_id = lolesports.get_youtube_id(vod['source'])
+            videos_map[youtube_id] = str(mapping)
 
     redis_db = datastore.get_redis_connection()
     redis_db.mset(videos_map)
