@@ -8,6 +8,8 @@ import flask
 # Project modules
 import riot
 import datastore
+import lolesports
+from lolesports import InvalidIdException
 
 logging.basicConfig(level=logging.INFO)
 
@@ -68,6 +70,23 @@ def get_match_details(region, match_id):
         result = ('', response.status_code, response.headers)
 
     return result
+
+
+@app.route('/v1/lolesports/<youtube_id>')
+def get_esports_match_details(youtube_id):
+    match_details = {}
+
+    try:
+        match_details = lolesports.get_match_details(youtube_id)
+    except InvalidIdException:
+        error_message = 'Could not find a match with the '\
+            f'youtube id: {youtube_id}'
+
+        match_details = {'error': {
+            'status_code': 404,
+            'message': error_message}}
+    finally:
+        return flask.jsonify(match_details)
 
 
 if __name__ == '__main__':
