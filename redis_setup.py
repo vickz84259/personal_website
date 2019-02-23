@@ -50,9 +50,8 @@ def setup():
             continue
 
         mapping = lolesports.get_mapping(tournament, vod['game'])
-        if mapping:
-            youtube_id = lolesports.get_youtube_id(vod['source'])
-            videos_map[youtube_id] = str(mapping)
+        youtube_id = lolesports.get_youtube_id(vod['source'])
+        videos_map[youtube_id] = str(mapping)
 
     redis_db = datastore.get_redis_connection()
     redis_db.mset(videos_map)

@@ -129,8 +129,7 @@ def get_match_details(youtube_id):
         tournament = get_tournament(league_id, tournament_id)
 
         mapping = get_mapping(tournament, vod['game'])
-        if mapping:
-            redis_db.set(youtube_id, str(mapping))
+        redis_db.set(youtube_id, str(mapping))
 
         result = mapping
     else:
