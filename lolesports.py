@@ -7,6 +7,7 @@ import regex
 
 # Project modules
 import datastore
+from project_setup import _setup
 
 BASE_URL = 'https://api.lolesports.com/api/'
 
@@ -126,8 +127,11 @@ def get_match_details(youtube_id):
 
         tournament_id = get_tournament_id(vod['reference'])
         league_id = redis_db.get(tournament_id)
-        tournament = get_tournament(league_id, tournament_id)
+        if league_id is None:
+            _setup(False)
+            league_id = redis_db.get(tournament_id)
 
+        tournament = get_tournament(league_id, tournament_id)
         mapping = get_mapping(tournament, vod['game'])
         redis_db.set(youtube_id, str(mapping))
 
