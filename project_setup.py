@@ -8,7 +8,7 @@ import datastore
 import lolesports
 
 
-def get_leagues():
+def get_lolesports_leagues():
     x_api_key = datastore.get_relapi_key()
     headers = {'x-api-key': x_api_key}
 
@@ -19,11 +19,18 @@ def get_leagues():
     return result['data']['leagues']
 
 
+def get_all_leagues():
+    url = 'https://api.lolesports.com/api/v1/navItems'
+    result = requests.get(url).json()
+
+    return result['leagues']
+
+
 def _setup(return_tournaments=True):
     tournament_map = {}
     league_map = {}
 
-    leagues = get_leagues()
+    leagues = get_all_leagues()
     for league in leagues:
         tournaments = lolesports.get_tournaments(league['slug'])
 
