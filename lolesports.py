@@ -29,7 +29,7 @@ def get_tournaments(league_slug=None, league_id=None):
     url = f'{BASE_URL}{endpoint}'
     result = requests.get(url).json()
 
-    return result['highlanderTournaments']
+    return result.get('highlanderTournaments', {})
 
 
 def get_vods():
